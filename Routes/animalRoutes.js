@@ -34,19 +34,10 @@ router.get('/animals/:id',async (req,res)=>{
 
 router.post("/animals",async (req,res)=>{
     try{
- const {name,species}=req.body
- const nameexist=await Animal.findOne({name})
- const speciesExist=await Animal.findOne({species})
- if(nameexist && speciesExist)
-         {
-            res.status(403).json({message:"data already existed"})
-         }
-        else{
-            const newAnimal=await Animal.create({name:name,species:species})
-             res.status(200).json(newAnimal)
+         const {name,species}=req.body
+         const newAnimal=await Animal.create({name:name,species:species})
+         res.status(200).json(newAnimal)
 
-        }
-    
     }
     catch(err)
     {
