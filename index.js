@@ -25,6 +25,6 @@ connectDB()
 app.use("/api",router)
 
 app.listen(process.env.PORT,()=>{
-    console.log("app is running on 5000")
+    console.log(`server is running on ${process.env.PORT}`)
 }
 )
